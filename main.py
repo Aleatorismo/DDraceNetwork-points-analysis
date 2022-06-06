@@ -1,4 +1,4 @@
-import json
+import requests
 import pandas as pd
 import datetime
 import numpy as np
@@ -7,10 +7,14 @@ import matplotlib.ticker as ticker
 from collections import OrderedDict
 from scipy.interpolate import interp1d
 
-# 读取json文件
-filename = 'randomium.json'
-with open(filename) as f:
-    rd = json.load(f)  # raw data
+# 玩家昵称
+player_name = 'Randomium'
+
+# 下载 json 文件
+url = 'https://ddnet.tw/players/?json2=' + player_name
+r = requests.get(url)
+print("Status code:", r.status_code)
+rd = r.json()
 
 
 # 处理数据
