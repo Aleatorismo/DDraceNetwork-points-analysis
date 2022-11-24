@@ -16,6 +16,10 @@ r = requests.get(url)
 print("Status code:", r.status_code)
 rd = r.json()
 
+# 中文字体
+plt.rcParams["font.family"] = ["sans-serif"]
+plt.rcParams["font.sans-serif"] = ['SimHei']
+
 # 处理数据
 
 # name sorted data
@@ -95,7 +99,7 @@ plt.axis('off')
 plt.title('Analysis Report for\n\n' + rd['player'] + '\n\nTotal Points: ' + str(
     rd['points']['points']) + '\n\nTotal Map Counts: ' + str(
     len(nd)) + '\n\nReport Generated on:\n\n' + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), fontsize=20,
-          fontproperties='cmr10', y=0)
+          fontproperties='SimHei', y=0)
 
 # 数量柱状图
 plt.subplot(723)
@@ -105,7 +109,7 @@ for ty in reversed(list(order.keys())):
         plt.bar(t, ddm[t][mode[ty]]['number'], bottom=ddm[t]['offset'], label=mode[ty], color=order[ty])
         ddm[t]['offset'] += ddm[t][mode[ty]]['number']
 plt.xticks(range(0, len(ddm), x_spacing_m), fontsize=fts, rotation=rot)
-plt.title('Counts(Monthly)', fontsize=20, fontproperties='cmr10', y=1.03)
+plt.title('Counts(Monthly)', fontsize=20, fontproperties='SimHei', y=1.03)
 # 生成图例同时去除冗余图例
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = OrderedDict(zip(labels, handles))
@@ -120,7 +124,7 @@ for ty in reversed(list(order.keys())):
         plt.bar(t, ddm[t][mode[ty]]['points'], bottom=ddm[t]['offset'], label=mode[ty], color=order[ty])
         ddm[t]['offset'] += ddm[t][mode[ty]]['points']
 plt.xticks(range(0, len(ddm), x_spacing_m), fontsize=fts, rotation=rot)
-plt.title('Points(Monthly)', fontsize=20, fontproperties='cmr10', y=1.03)
+plt.title('Points(Monthly)', fontsize=20, fontproperties='SimHei', y=1.03)
 
 # 数量、分数曲线图
 plt.subplot(725)
@@ -153,7 +157,7 @@ for t in ddd.keys():
     for ty in reversed(list(order.keys())):
         plt.bar(t, ddd[t][mode[ty]]['number'], bottom=ddd[t]['offset'], color=order[ty])
         ddd[t]['offset'] += ddd[t][mode[ty]]['number']
-plt.title('Counts(Daily)', fontsize=20, fontproperties='cmr10', y=1.02)
+plt.title('Counts(Daily)', fontsize=20, fontproperties='SimHei', y=1.02)
 plt.xticks(fontsize=fts, rotation=rot)
 plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(x_spacing_d))
 
@@ -165,7 +169,7 @@ for t in ddd.keys():
     for ty in reversed(list(order.keys())):
         plt.bar(t, ddd[t][mode[ty]]['points'], bottom=ddd[t]['offset'], color=order[ty])
         ddd[t]['offset'] += ddd[t][mode[ty]]['points']
-plt.title('Points(Daily)', fontsize=20, fontproperties='cmr10', y=1.02)
+plt.title('Points(Daily)', fontsize=20, fontproperties='SimHei', y=1.02)
 plt.xticks(fontsize=fts, rotation=rot)
 plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(x_spacing_d))
 
@@ -191,18 +195,18 @@ for t in ddd.keys():
 
 plt.subplot2grid((7, 2), (5, 0), colspan=2, rowspan=1)
 plt.plot(x, yn)
-plt.title('Total Counts(Daily)', fontsize=20, fontproperties='cmr10', y=1.02)
+plt.title('Total Counts(Daily)', fontsize=20, fontproperties='SimHei', y=1.02)
 plt.xticks(x, xt, fontsize=fts, rotation=rot)
 plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(x_spacing_d))
 
 plt.subplot2grid((7, 2), (6, 0), colspan=2, rowspan=1)
 plt.plot(x, yp)
-plt.title('Total Points(Daily)', fontsize=20, fontproperties='cmr10', y=1.02)
+plt.title('Total Points(Daily)', fontsize=20, fontproperties='SimHei', y=1.02)
 plt.xticks(x, xt, fontsize=fts, rotation=rot)
 plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(x_spacing_d))
 
 # 水印
-plt.figtext(0.9, 0.07, 'Report Made By: Randomium\n Update By: Segn', ha="right", va="bottom", fontsize=20, fontproperties='cmr10')
+plt.figtext(0.9, 0.07, 'Report Made By: Randomium\n Update By: Segn', ha="right", va="bottom", fontsize=20, fontproperties='SimHei')
 
 # 保存图表
 plt.savefig('report_' + rd['player'] + '.png')
