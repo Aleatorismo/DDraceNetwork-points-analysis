@@ -113,7 +113,7 @@ plt.title('Counts(Monthly)', fontsize=20, fontproperties='SimHei', y=1.03)
 # 生成图例同时去除冗余图例
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = OrderedDict(zip(labels, handles))
-plt.legend(reversed(by_label.values()), reversed(by_label.keys()), bbox_to_anchor=(1.9, 2.3), prop='cmr10')
+plt.legend(reversed(by_label.values()), reversed(by_label.keys()), bbox_to_anchor=(1.9, 2.3), prop='SimHei')
 
 # 分数柱状图
 plt.subplot(724)
