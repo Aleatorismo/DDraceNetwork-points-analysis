@@ -232,7 +232,7 @@ if __name__ == '__main__':
     # 分数柱状图
     print('Drawing bar graph of monthly points')
     plt.subplot(724)
-    plot_bar(ddm, 'points', x_spacing_m, 'Points(Monthly)')
+    plot_bar(ddm, 'points', x_spacing_m, 'Points (Monthly)')
 
     # 数量曲线图
     print('Drawing curve graph of monthly finished maps count')
@@ -252,7 +252,7 @@ if __name__ == '__main__':
     # 分数柱状图（日）
     print('Drawing bar graph of daily points')
     plt.subplot2grid((7, 2), (4, 0), colspan=2, rowspan=1)
-    plot_bar(ddd, 'points', x_spacing_d, 'Points(Daily)')
+    plot_bar(ddd, 'points', x_spacing_d, 'Points (Daily)')
 
     # 数量累积曲线图（日）
     print('Drawing curve graph of cumulative finished maps count')
@@ -262,9 +262,9 @@ if __name__ == '__main__':
     # 分数累积曲线图（日）
     print('Drawing curve graph of cumulative points')
     plt.subplot2grid((7, 2), (6, 0), colspan=2, rowspan=1)
-    points = plot_cumulative_curve(ddd, 'points', x_spacing_d, 'Cumulative Points(Daily)')
+    points = plot_cumulative_curve(ddd, 'points', x_spacing_d, 'Cumulative Points (Daily)')
 
-    # 图标抬头
+    # 图表抬头
     plt.subplot(721)
     head(points, count)
 
